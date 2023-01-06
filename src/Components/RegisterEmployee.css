@@ -1,0 +1,47 @@
+.RegisterEmployee {
+    text-align: left;
+    margin-left: 3cm;
+
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.h1 {
+    font-size: large;
+    font-weight: bold;
+    margin-bottom: 0.5em;
+}
+
+.profile {
+    width: 30px;
+    border-radius: 50%;
+    margin-left: 0px;
+}
+
+  
+.input {
+    width: 50%;
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: vertical;
+}
+
+
+.select {
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: vertical;
+    /*font: normal normal normal 16px Roboto;*/
+    letter-spacing: 0px;
+    /*color: #42515f;
+    background-color: transparent;*/
+}
+
+
+  
