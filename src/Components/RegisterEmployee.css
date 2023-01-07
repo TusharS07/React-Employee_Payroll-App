@@ -5,8 +5,15 @@
 }
 
 .form {
-    display: flex;
-    flex-direction: column;
+    width: 65%;
+    padding: 44px 60px;
+    background: #fff 0% 0% no-repeat padding-box;
+    border: 1px solid #f5f5f5;
+    border-radius: 8px;
+    opacity: 1;
+    text-align: left;
+    border-style: solid;
+    border-top: #42515f;
 
 }
 
