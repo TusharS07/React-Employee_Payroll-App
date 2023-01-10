@@ -13,7 +13,7 @@ function Form() {
     const [department, setDepartment] = useState("")
     const [salary, setSalary] = useState("")
     const [day, setDay] = useState(0)
-    const [month, setMonth] = useState(0)
+    const [month, setMonth] = useState("")
     const [year, setYear] = useState(0)
     const [notes, setNotes] = useState("")
 
@@ -22,9 +22,10 @@ function Form() {
     let employee = {
       name: name,
       gender: gender,
+      //profileImage: profilePic,
       department: department,
       salary: salary,
-      date: `${day,month,year}`,
+      startDate: `${day} ${month} ${year}`,
       notes: notes
     }
 
@@ -32,8 +33,9 @@ function Form() {
       e.preventDefault()
       console.log("Submited");
       axios.post("http://localhost:8082/Emplyoee_Payroll/Register_Employee",employee)
-      .then(responce => console.log(responce))
+      .then(responce => alert(responce.data.message))
       .catch(error => console.log(error))
+      window.location.reload();
     }
 
 
@@ -57,22 +59,22 @@ function Form() {
             <label className="label text">Profile image</label>
             <div className="profile-radio-content">
             <label>
-            <input type="radio" name="profilePic" onChange={() => setProfilePic(profilePic)} />
+            <input type="radio" name="profilePic" onChange={() => setProfilePic(Profil1)} />
             <img className="profile" src={Profil1}></img>
             </label>
 
             <label>
-            <input type="radio" name="profilePic" onChange={() => setProfilePic(profilePic)} />
+            <input type="radio" name="profilePic" onChange={() => setProfilePic(Profil2)} />
             <img className="profile" src={Profil2}></img>
             </label>
 
             <label>
-            <input type="radio" name="profilePic" onChange={() => setProfilePic(profilePic)} />
+            <input type="radio" name="profilePic" onChange={() => setProfilePic(Profil3)} />
             <img className="profile" src={Profil3}></img>
             </label>
 
             <label>
-            <input type="radio" name="profilePic" onChange={() => setProfilePic(profilePic)} />
+            <input type="radio" name="profilePic" onChange={() => setProfilePic(Profil4)} />
             <img className="profile" src={Profil4}></img>
             </label>
             </div>
@@ -93,11 +95,11 @@ function Form() {
             <div className="row-content">
             <label className="label text"> Department </label>
             <div >
-            <input type="checkbox" className='input-content' size= "5" name="hr" onChange={() => setDepartment("Hr")} /> HR &#160; &#160;
-            <input type="checkbox" size= "5" name="department" value="sales" onChange={() => setDepartment("Sales")} /> Sales &#160; &#160;
-            <input type="checkbox" size= "5" name="department" value="finance" onChange={() => setDepartment("finance")} /> Finance &#160; &#160;
-            <input type="checkbox" size= "5" name="department" value="engineer" onChange={() => setDepartment("engineer")} /> Engineer &#160; &#160;
-            <input type="checkbox" size= "5" name="department" value="others" onChange={() => setDepartment("Others")} /> Others &#160; &#160;
+            <input type="checkbox" className='input-content' size= "5" name="department" onChange={() => setDepartment("HR")} /> HR &#160; &#160;
+            <input type="checkbox" size= "5" name="department" onChange={() => setDepartment("Sales")} /> Sales &#160; &#160;
+            <input type="checkbox" size= "5" name="department" onChange={() => setDepartment("Finance")} /> Finance &#160; &#160;
+            <input type="checkbox" size= "5" name="department"  onChange={() => setDepartment("Engineer")} /> Engineer &#160; &#160;
+            <input type="checkbox" size= "5" name="department" onChange={() => setDepartment("Others")} /> Others &#160; &#160;
             </div>
             </div>
 
@@ -107,11 +109,13 @@ function Form() {
             <div className='selectBox'>
                     <select name="salary" onChange={(event) => setSalary(event.target.value)}>
                         <option value=" ">Select Salary</option>
-                        <option value="30,000">30,000₹</option>
-                        <option value="60,000">60,000₹</option>
-                        <option value="90,000">90,000₹</option>
-                        <option value="1,20,000">1,20,000₹</option>
-                        <option value="1,50,000">1,50,000₹</option>
+                        <option>₹ 25,000</option>
+                        <option>₹ 30,000</option>
+                        <option>₹ 60,000</option>
+                        <option>₹ 90,000</option>
+                        <option>₹ 1,20,000</option>
+                        <option>₹ 1,50,000</option>
+                        <option>₹ 2,00,000</option>
                     </select>
                     </div>
                     </div>
@@ -120,68 +124,68 @@ function Form() {
                     <label>Start Date</label>
                     <div className='selectBox'>
                     <select name="day" onChange={(event) => setDay(event.target.value)}>
-                        <option value=" ">Day</option>
-                        <option value="01">01</option>
-                        <option value="02">02</option>
-                        <option value="03">03</option>
-                        <option value="04">04</option>
-                        <option value="05">05</option>
-                        <option value="06">06</option>                                
-                        <option value="07">07</option>
-                        <option value="08">08</option>
-                        <option value="09">09</option>
-                        <option value="10">10</option>
-                        <option value="11">11</option>
-                        <option value="12">12</option>
-                        <option value="13">13</option>
-                        <option value="14">14</option>
-                        <option value="15">15</option>
-                        <option value="16">16</option>
-                        <option value="17">17</option>
-                        <option value="18">18</option>
-                        <option value="19">19</option>
-                        <option value="20">20</option>
-                        <option value="21">21</option>
-                        <option value="22">22</option>
-                        <option value="23">23</option>
-                        <option value="24">24</option>
-                        <option value="25">25</option>
-                        <option value="26">26</option>
-                        <option value="27">27</option>
-                        <option value="28">28</option>
-                        <option value="29">29</option>
-                        <option value="30">30</option>
-                        <option value="31">31</option>
+                        <option>Day</option>
+                        <option>01</option>
+                        <option>02</option>
+                        <option>03</option>
+                        <option>04</option>
+                        <option>05</option>
+                        <option>06</option>                                
+                        <option>07</option>
+                        <option>08</option>
+                        <option>09</option>
+                        <option>10</option>
+                        <option>11</option>
+                        <option>12</option>
+                        <option>13</option>
+                        <option>14</option>
+                        <option>15</option>
+                        <option>16</option>
+                        <option>17</option>
+                        <option>18</option>
+                        <option>19</option>
+                        <option>20</option>
+                        <option>21</option>
+                        <option>22</option>
+                        <option>23</option>
+                        <option>24</option>
+                        <option>25</option>
+                        <option>26</option>
+                        <option>27</option>
+                        <option>28</option>
+                        <option>29</option>
+                        <option>30</option>
+                        <option>31</option>
                     </select> &#160;
                     </div>
                     
                     <select name="month" onChange={(event) => setMonth(event.target.value)}>
                         <option value="" >Month</option>
-                        <option value="01">January</option>
-                        <option value="02">Febuary</option>
-                        <option value="03">March</option>
-                        <option value="04">April</option>
-                        <option value="05">May</option>
-                        <option value="06">June</option>
-                        <option value="07">July</option>
-                        <option value="08">August</option>
-                        <option value="09">September</option>
-                        <option value="10">October</option>
-                        <option value="11">November</option>
-                        <option value="12">December</option>
+                        <option>January</option>
+                        <option>Febuary</option>
+                        <option>March</option>
+                        <option>April</option>
+                        <option>May</option>
+                        <option>June</option>
+                        <option>July</option>
+                        <option>August</option>
+                        <option>September</option>
+                        <option>October</option>
+                        <option>November</option>
+                        <option>December</option>
                     </select> &#160;
                     
 
                     <select name="year" id="year" onChange={(event) => setYear(event.target.value)}>
                         <option value="" >Year</option>
-                        <option value="2023">2023</option>
-                        <option value="2022">2022</option>
-                        <option value="2021">2021</option>
-                        <option value="2020">2020</option>
-                        <option value="2019">2019</option>
-                        <option value="2018">2018</option>
-                        <option value="2017">2017</option>
-                        <option value="2016">2016</option>
+                        <option>2023</option>
+                        <option>2022</option>
+                        <option>2021</option>
+                        <option>2020</option>
+                        <option>2019</option>
+                        <option>2018</option>
+                        <option>2017</option>
+                        <option>2016</option>
                     </select>
                     </div>
 
