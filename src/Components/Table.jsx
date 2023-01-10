@@ -35,6 +35,28 @@ function Table() {
         .catch(error => console.log(error))
     }
 
+    function searchTable() {
+        var input, filter, found, table, tr, td, i, j;
+        input = document.getElementById("myInput");
+        filter = input.value.toUpperCase();
+        table = document.getElementById("myTable");
+        tr = table.getElementsByTagName("tr");
+        for (i = 0; i < tr.length; i++) {
+            td = tr[i].getElementsByTagName("td");
+            for (j = 0; j < td.length; j++) {
+                if (td[j].innerHTML.toUpperCase().indexOf(filter) > -1) {
+                    found = true;
+                }
+            }
+            if (found) {
+                tr[i].style.display = "";
+                found = false;
+            } else {
+                tr[i].style.display = "none";
+            }
+        }
+    }
+
     return (
         <div>         
             <div className="main-content">
@@ -42,10 +64,11 @@ function Table() {
 			<div className="emp-detail-text">
 				Employee Details
 			</div>
+            <input type="text" id='myInput' onKeyUp={searchTable} placeholder="Search for names.." title="Type in a name"/>
 			<Link to="/addEmp" className="add-button"> + Add User </Link>
             </div>
         <div className="table-wrapper">
-            <table className="fl-table">
+            <table className="fl-table" id='myTable'>
                 <thead>
                     <tr>
                         <th>NAME</th>
