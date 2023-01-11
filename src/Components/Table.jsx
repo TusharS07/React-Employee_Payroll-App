@@ -35,6 +35,15 @@ function Table() {
         .catch(error => console.log(error))
     }
 
+    function searchTableContent(value) {
+        let id = parseInt(value)
+        console.log(value)
+        axios.get(`http://localhost:8082/Emplyoee_Payroll/Find_Employee_Data?id=${id}`)
+        .then(responce => console.log(responce.data.obj))
+        .catch(error => console.log(error))
+
+    }
+
     function searchTable() {
         var input, filter, found, table, tr, td, i, j;
         input = document.getElementById("myInput");
